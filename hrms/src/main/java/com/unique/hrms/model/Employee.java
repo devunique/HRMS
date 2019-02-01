@@ -19,17 +19,23 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name="HRMS_EMPLOYEE_INFO")
+@Table(name="HRMS_EMP_BASIC_INFO")
 @EntityListeners(AuditingEntityListener.class)
-@JsonIgnoreProperties(value= {"dtCreatedAt","dtModifiedAt"})
+//@JsonIgnoreProperties(value= {"dtCreatedAt","dtModifiedAt"})
 public class Employee {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long Emp_Id;
 
-	@Column(name="EMP_FST_NAME")
+	@Column(name="EMP_TITLE")
+	private String strTitle;
+	
+	@Column(name="EMP_FIRST_NAME")
 	private String strFst_Name;
+	
+	@Column(name="EMP_MIDDLE_NAME")
+	private String strMiddle_Name;
 	
 	@Column(name="EMP_LST_NAME")
 	private String strLst_Name;
@@ -37,10 +43,16 @@ public class Employee {
 	@Column(name="EMP_DOB")
 	private Date dtDOB;
 	
-	@Column(name="EMP_FATHER_NAME")
-	private String strFatName;
+	@Column(name="EMP_DOJ")
+	private Date dtDOJ;
+	
+	@Column(name="EMP_DESIGNATION")
+	private String strDesig;
+	
+	@Column(name="EMP_GENDER")
+	private String strGender;
 
-	@Column(name="EMP_CREA_DATE",nullable=false,updatable=false)
+	/*@Column(name="EMP_CREA_DATE",nullable=false,updatable=false)
 	@Temporal(TemporalType.DATE)
 	@CreatedDate
 	private Date dtCreatedAt;
@@ -48,7 +60,7 @@ public class Employee {
 	@Column(name="EMP_MODI_DATE",nullable=false)
 	@Temporal(TemporalType.DATE)
 	@LastModifiedDate
-	private Date dtModifiedAt;
+	private Date dtModifiedAt;*/
 	
 	
 	public Long getEmp_Id() {
@@ -59,7 +71,7 @@ public class Employee {
 		Emp_Id = emp_Id;
 	}
 
-	public Date getDtCreatedAt() {
+	/*public Date getDtCreatedAt() {
 		return dtCreatedAt;
 	}
 
@@ -74,7 +86,7 @@ public class Employee {
 	public void setDtModifiedAt(Date dtModifiedAt) {
 		this.dtModifiedAt = dtModifiedAt;
 	}
-
+*/
 	public String getStrFst_Name() {
 		return strFst_Name;
 	}
@@ -98,14 +110,5 @@ public class Employee {
 	public void setDtDOB(Date dtDOB) {
 		this.dtDOB = dtDOB;
 	}
-
-	public String getStrFatName() {
-		return strFatName;
-	}
-
-	public void setStrFatName(String strFatName) {
-		this.strFatName = strFatName;
-	}
-	
 	
 }

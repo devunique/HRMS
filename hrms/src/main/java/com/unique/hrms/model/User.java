@@ -7,7 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="HRMS_EMPLOYEE_INFO")
+@Table(name="HRMS_EMP_LOGIN_INFO")
 public class User {
 
 	@javax.persistence.Id

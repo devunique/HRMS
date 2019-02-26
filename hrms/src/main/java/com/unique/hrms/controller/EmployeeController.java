@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.unique.hrms.model.Employee;
 import com.unique.hrms.model.User;
+import com.unique.hrms.model.UserLogin;
 import com.unique.hrms.repository.EmployeeRepository;
 import com.unique.hrms.repository.UserRepository;
 
@@ -40,7 +41,7 @@ public class EmployeeController {
 	}
 	
 	@GetMapping(value="/user/list")
-	 public List<User>getAllUsers(){
+	 public List<UserLogin>getAllUsers(){
 		 
 		 return userRepository.findAll();
 	 }

@@ -4,10 +4,10 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
-
-@Entity
-@Table(name="HRMS_EMP_PERSONAL_DETAILS")
 public class EmployeeperDetails {
+/*@Entity
+@Table(name="HRMS_EMP_PERSONAL_DETAILS")
+
 
 	private int id;
 	
@@ -91,4 +91,5 @@ public class EmployeeperDetails {
 		this.strPassport = strPassport;
 	}
 	
+}*/
 }

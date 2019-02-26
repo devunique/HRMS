@@ -83,14 +83,21 @@ public class ForgetPasswordController {
 	}
 
 	@GetMapping("/user/reset/{password}/{token}")
-	public String UpdatePassword(@PathVariable (value="password") String password,@PathVariable (value="token") String token) {
+	public boolean UpdatePassword(@PathVariable (value="password") String password,@PathVariable (value="token") String token) {
 			System.out.println(token +" email id ");
 			System.out.println(password +"  password");
 		
-			userRep.findBystrResetToken(token);
-			//userlogin.setStrPassword(password);
-			UserLogin.setStrPassword(password);
-			userRep.save(UserLogin);
-			return "Password Updated Sucessfully!!!";
+			Optional <UserLogin> optional = userService.finduserBystrRestToken(token);
+			if(! optional.isPresent()) {
+				return false;
+			}
+			else {
+				UserLogin =optional.get();
+				UserLogin.setStrPassword(password);
+				UserLogin.setStrResetToken(null);
+				userService.save(UserLogin);
+				return true;
+			}
+			
 	}
 }
